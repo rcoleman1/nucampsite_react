@@ -4,12 +4,20 @@
  * Section: React Components
  * Exercise: React Components Part 1
  */
+
+// Import React and Component classes
 import React, { Component } from 'react';
 import App from '../App';
 
+// Create new component from Component
 class Directory extends Component {
+    // If you use a constructor method, you must props as an argument.
     constructor(props){
+        // super(props) must be the first line and is required by React
         super(props);
+
+        // state is defined in the constructor
+        // must always hold an object.
         this.state = {
             campsites: [
                 {
@@ -44,7 +52,11 @@ class Directory extends Component {
         };
     }
 
+    // Every React component must return a react element.
+    // You must wrap your return statement inside render()
     render(){
+        // Map over the array of elements
+        // Build the div elements using array data on each iteration.
         const directory = this.state.campsites.map(campsite => {
             return(
                 <div key={campsite.id} className="col">
@@ -55,6 +67,7 @@ class Directory extends Component {
             );
         })
         
+        // Return the component
         return (
             <div className="container">
                 <div className="row">
